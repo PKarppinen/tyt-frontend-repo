@@ -1,0 +1,29 @@
+<p ng-if="errors">{{errors}}</p>
+
+<div ng-show="successfulDelete" class="alert alert-success tyt-alert-message">
+  <strong>Success!</strong> Trail deleted successfully.
+</div>
+
+<div ng-show="trails.length === 0 && !successfulDelete">
+    <h3>No trails to delete</h3>
+</div>
+
+<form name="deleteTrailForm" 
+        ng-submit="deleteTrails()"
+        ng-show="!successfulDelete"
+        novalidate>
+        
+	<div class="tyt-trails-list">
+		<div class="radio" ng-repeat="trail in trails | orderBy:'title'">
+		    <label>
+		        <input type="radio" name="optradio" ng-value="trail.id" ng-model="trailIdToBeDeleted.id">
+		        <span class="lead">{{trail.title}}</span>
+		    </label>
+		</div>
+	</div>
+	
+	<div class="tyt-delete-trails-button" ng-show="trails.length !== 0">
+	   <input type="submit" value="Delete trail"  class="btn btn-danger" />
+	</div>
+	
+</form>

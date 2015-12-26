@@ -1,0 +1,40 @@
+<p ng-if="errors">{{errors}}</p>
+
+<div ng-show="successfulUpdate" class="alert alert-success tyt-alert-message">
+  <strong>Success!</strong> Trail updated successfully.
+</div>
+
+<div ng-show="trails.length === 0 && !successfulDelete">
+    <h3>No trails to update</h3>
+</div>
+
+<form name="updateTrailForm" 
+        ng-submit="updateTrail()"
+        ng-show="!successfulUpdate"
+        novalidate>
+        
+    <div class="panel-group tyt-update-accordion" id="accordion">
+        <div class="panel panel-default" ng-repeat="trail in trails | orderBy:'title'">
+            <div class="panel-heading">
+		        <h4 class="panel-title">
+		            <button type="button" 
+		                    class="btn btn-default tyt-update-accordion-button" 
+		                    data-toggle="collapse" 
+		                    data-parent="#accordion" 
+		                    data-target="#collapse{{trail.id}}"
+		                    ng-click="trailSelected(trail)">
+		                {{trail.title}}
+		            </button>
+		        </h4>
+            </div>
+            <div id="collapse{{trail.id}}" 
+                 data-target="#collapse{{trail.id}}" 
+                 class="panel-collapse collapse">
+		        <div class="panel-body">
+		            <update-trail></update-trail>  
+		        </div>		        
+		    </div>           
+        </div>
+    </div>
+    
+</form>

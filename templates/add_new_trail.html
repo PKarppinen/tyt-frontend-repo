@@ -1,0 +1,35 @@
+ <p ng-if="errors">{{errors}}</p>
+
+<div ng-show="successfulAdd" class="alert alert-success tyt-alert-message">
+  <strong>Success!</strong> Trail added successfully.
+</div>
+
+<form name="addNewTrailForm"
+      ng-submit="addNewTrailForm.$valid && addNewTrail(trail)" 
+      novalidate
+      ng-hide="successfulAdd">
+     
+    <div class="tyt-form-title">
+        <input ng-model="trail.title" 
+               type="text" 
+               placeholder="Title of the trail" 
+               size="60" 
+               required 
+               class="tyt-form-input-constant-width" />
+    </div>
+    
+    <div class="tyt-form-iframe">
+	    <textarea name="iframe" 
+	                ng-model="trail.iframe" 
+	                type="text" 
+	                required 
+	                pattern="<iframe src=&quot;https:\/\/www\.google\.com\/maps\/embed\?.*><\/iframe>" 
+	                placeholder="Full iframe element. Element has to start with: '<iframe src=&quot;https://www.google.com/maps/embed\?' which will be followed by the parameters of your route. The element has to end with '></iframe>'. You can get full iframe element desctiption from Google maps."
+	                rows="10" cols="61"
+	                class="tyt-form-input-constant-width">
+	    </textarea>
+    </div>
+    
+    <input type="submit" value="Add new trail" ng-disabled="!addNewTrailForm.$valid" class="btn btn-success" />
+
+</form>

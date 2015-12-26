@@ -1,0 +1,26 @@
+<div ng-show="trails.length === 0 ">
+    <h3>No trails</h3>
+</div>
+
+<div class="panel-group tyt-list-accordion" id="accordion">
+    <div class="panel panel-default" ng-repeat="trail in trails | orderBy:'title'">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <button type="button" 
+                        class="btn btn-default tyt-list-accordion-button" 
+                        data-toggle="collapse" 
+                        data-parent="#accordion" 
+                        data-target="#collapse{{trail.id}}">
+                    {{trail.title}}
+                </button>
+            </h4>
+        </div>
+        <div id="collapse{{trail.id}}" 
+             data-target="#collapse{{trail.id}}" 
+             class="panel-collapse collapse">
+            <div class="panel-body">
+               <div ng-bind-html="trail.iframe | trust_iframe" class="tyt-iframe-wrapper"></div>
+            </div>              
+        </div>           
+    </div>
+</div>
