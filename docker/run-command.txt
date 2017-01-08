@@ -1,0 +1,6 @@
+1.
+CHANGE AWS EC2 IP IN Dockerfile
+2.
+RUN CONTAINER:
+--------------
+docker run -d -p 8081:8081 --name web root/tyt-web http-server . -p 8081
