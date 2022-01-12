@@ -17,9 +17,18 @@ RUN npm install http-server -g
 
 # Install Grunt client
 RUN npm install -g grunt-cli
+RUN npm install grunt --save-dev
+RUN npm install grunt-template
+RUN npm install grunt-contrib-copy
+RUN npm install grunt-contrib-concat
+RUN npm install grunt-contrib-uglify
+RUN npm install grunt-contrib-cssmin
 
 # Run Grunt to setup cluster environment configs
-RUN grunt --apiIP=54.77.130.18
+RUN grunt --apiIP=3.249.66.119
 
 # Give needed permissions for minified js file
 RUN chmod 755 dist/js/trail-your-trails.min.js
+
+# Run http-server
+CMD http-server . -p 8081
