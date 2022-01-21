@@ -3,9 +3,9 @@ module.exports = function (grunt) {
   
 	var conf;
 	if (grunt.option('apiIP')) {
-		conf = { apiUrl: 'http://' + grunt.option('apiIP') + ':8080/api/trails/' };
+		conf = { apiUrl: 'http://' + grunt.option('apiIP') + ':8080' };
 	} else {
-		conf = { apiUrl: 'http://localhost:8080/api/trails/' };
+		conf = { apiUrl: 'http://localhost:8080' };
 	}
 	
 	grunt.log.write('API URL: ' + conf.apiUrl);

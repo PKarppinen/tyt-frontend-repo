@@ -3,8 +3,8 @@ angular.module('trail-your-trails')
     
     $routeProvider
 	.when('/', {
-	    templateUrl: 'templates/list_all_trails.html',
-	    controller: 'ListAllTrailsController'
+	    templateUrl: 'templates/login.html',
+	    controller: 'LoginController'
 	}).when('/list-all-trails', {
 	    templateUrl: 'templates/list_all_trails.html',
 	    controller: 'ListAllTrailsController'

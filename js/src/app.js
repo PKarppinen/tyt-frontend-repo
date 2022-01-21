@@ -1,5 +1,6 @@
 angular.module('trail-your-trails', [
-     'ngRoute',             
+     'ngRoute',
+     'login-controller',      
      'list-all-trails-controller',
      'navigation-controller',
      'add-new-trail-controller',
@@ -9,4 +10,6 @@ angular.module('trail-your-trails', [
      'show-iframe-directive',
      'trail-iframe-filter',
      'tyt-config'
-]); 
+]).config(['$httpProvider', function($httpProvider) {
+     $httpProvider.defaults.withCredentials = true;
+   }]);

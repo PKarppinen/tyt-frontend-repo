@@ -7,7 +7,7 @@ angular.module('add-new-trail-controller', [ ])
         $scope.errors = null;
             
         $http({method: 'POST',
-                url: config.apiUrl,
+                url: config.apiUrl + "/api/trails/",
                 data: trail })
         .success(function(data) {
             $scope.successfulAdd = true;                         

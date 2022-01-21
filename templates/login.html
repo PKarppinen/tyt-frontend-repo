@@ -1,0 +1,18 @@
+<p ng-if="errors">{{errors}}</p>
+
+<form name="loginForm"
+      ng-submit="loginForm.$valid && login(creds)" 
+      novalidate>
+     
+    <div class="tyt-form-group">
+		<label for="username">Username:</label>
+        <input type="text" class="tyt-form-control" id="username" name="username" ng-model="creds.username" />
+	</div>
+	<div class="form-group">
+		<label for="password">Password:</label>
+        <input type="password" class="tyt-form-control" id="password" name="password" ng-model="creds.password"/>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Login</button>
+
+</form>

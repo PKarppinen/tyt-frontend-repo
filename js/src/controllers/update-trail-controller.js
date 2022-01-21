@@ -20,7 +20,7 @@ angular.module('update-trail-controller', [ ])
         $scope.errors = null;
             
         $http({method: 'PUT',
-                url: config.apiUrl,
+                url: config.apiUrl + "/api/trails/",
                 data: trail })
         .success(function(data) {
             $scope.successfulUpdate = true;                         

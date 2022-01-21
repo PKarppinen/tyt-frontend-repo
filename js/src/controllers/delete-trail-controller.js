@@ -16,7 +16,7 @@ angular.module('delete-trail-controller', [ ])
   
         if ($scope.trailIdToBeDeleted !== '') {                
             $http({method: 'DELETE',
-                    url: config.apiUrl + $scope.trailIdToBeDeleted.id })
+                    url: config.apiUrl + "/api/trails/" + $scope.trailIdToBeDeleted.id })
                        .success(function(data) {
                            $scope.successfulDelete = true;
                            $scope.trailIdToBeDeleted.id = '';                          
