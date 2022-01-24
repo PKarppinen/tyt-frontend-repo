@@ -6,9 +6,11 @@ angular.module('update-trail-controller', [ ])
     //This has to be an object to get a reference to it inside ng-repeat loop
     $scope.trailToBeUpdated = {};
    
-    $http.get(config.apiUrl)
-            .success(function(data) {
-                $scope.trails = data;
+    $http({method: 'GET',
+            url: config.apiUrl + "/api/trails/",
+            withCredentials: false})
+        .success(function(data) {
+            $scope.trails = data;
     });
     
     $scope.trailSelected = function(trail) {
@@ -21,7 +23,8 @@ angular.module('update-trail-controller', [ ])
             
         $http({method: 'PUT',
                 url: config.apiUrl + "/api/trails/",
-                data: trail })
+                data: trail,
+                withCredentials: false})
         .success(function(data) {
             $scope.successfulUpdate = true;                         
         })

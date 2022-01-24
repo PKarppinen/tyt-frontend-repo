@@ -92,7 +92,15 @@
     margin-bottom: -10px;
 }
 
-.tyt-form-group {
-    margin-left: -50px;
-    margin-right: -50px;
+.tyt-login-username {
+    font-weight: 100;
+}
+
+.tyt-login-password {
+    background: white;
+    border-color: ghostwhite;
+}
+
+.tyt-login-button {
+    padding-top: 10px;
 }

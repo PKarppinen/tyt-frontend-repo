@@ -8,7 +8,9 @@ angular.module('add-new-trail-controller', [ ])
             
         $http({method: 'POST',
                 url: config.apiUrl + "/api/trails/",
-                data: trail })
+                data: trail,
+                withCredentials: false
+            })
         .success(function(data) {
             $scope.successfulAdd = true;                         
         })

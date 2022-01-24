@@ -21,26 +21,7 @@
     
 	    <section>
 	        <img src="images/logo.png">
-	    </section>
-	    
-	    <section>
-           <div ng-controller="NavigationController">       
-                <ul class="nav nav-pills tyt-center-text">
-                    <li ng-class="{ active: isSelected('list-all-trails') }"> 
-                        <a href="#list-all-trails" ng-click="selectTab('list-all-trails')">All trails</a> 
-                    </li>
-                    <li ng-class="{ active: isSelected('add-new-trail') }"> 
-                        <a href="#add-new-trail" ng-click="selectTab('add-new-trail')">Add new trail</a> 
-                    </li>
-                    <li ng-class="{ active: isSelected('update-trail') }"> 
-                        <a href="#update-trail" ng-click="selectTab('update-trail')">Update trail</a> 
-                    </li>
-                    <li ng-class="{ active: isSelected('delete-trail') }"> 
-                        <a href="#delete-trail" ng-click="selectTab('delete-trail')">Delete trail</a> 
-                    </li>
-                </ul>
-            </div>   
-        </section>
+	    </section>	    
         
         <section>   
 	        <div ng-view></div>

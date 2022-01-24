@@ -6,17 +6,24 @@ angular.module('delete-trail-controller', [ ])
     //This has to be an object to get a reference to it inside ng-repeat loop
     $scope.trailIdToBeDeleted = {id: ''};
    
-    $http.get(config.apiUrl)
-            .success(function(data) {
-                $scope.trails = data;
+    //$http.get(config.apiUrl)
+    //        .success(function(data) {
+    //            $scope.trails = data;
+    //});
+    $http({method: 'GET',
+            url: config.apiUrl + "/api/trails/",
+            withCredentials: false})
+        .success(function(data) {
+            $scope.trails = data;
     });
-           
+
     $scope.deleteTrails = function() {
 	$scope.errors = null;        
   
         if ($scope.trailIdToBeDeleted !== '') {                
             $http({method: 'DELETE',
-                    url: config.apiUrl + "/api/trails/" + $scope.trailIdToBeDeleted.id })
+                    url: config.apiUrl + "/api/trails/" + $scope.trailIdToBeDeleted.id,
+                    withCredentials: false})            
                        .success(function(data) {
                            $scope.successfulDelete = true;
                            $scope.trailIdToBeDeleted.id = '';                          
