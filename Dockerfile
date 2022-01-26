@@ -25,10 +25,10 @@ RUN npm install grunt-contrib-uglify
 RUN npm install grunt-contrib-cssmin
 
 # Run Grunt to setup cluster environment configs
-RUN grunt --apiIP=127.0.0.1
+RUN grunt --apiIP=localhost
 
 # Give needed permissions for minified js file
 RUN chmod 755 dist/js/trail-your-trails.min.js
 
 # Run http-server
-CMD http-server . -p 8081
+CMD http-server . -p 8081 --cors

@@ -1,3 +1,2 @@
-1. Build image: docker build .
-2. Tag image: docker tag <image id> tyt-front
-3. Run container: docker run -d -p 8081:8081 --name web tyt-front
+Run cluster:    docker-compose -f docker-compose.yml up
+Remove cluster: docker-compose -f docker-compose.yml down
