@@ -1,34 +1,29 @@
 # Use this as a base image
 FROM node
 
-# Copy application
-WORKDIR /home/docker/web
-RUN mkdir css && mkdir images && mkdir js && mkdir templates && mkdir node_modules
-COPY index.html /home/docker/web/
-COPY Gruntfile.js /home/docker/web/
-COPY css /home/docker/web/css
-COPY images /home/docker/web/images
-COPY js /home/docker/web/js
-COPY templates /home/docker/web/templates
-COPY node_modules /home/docker/web/node_modules
-
 # Install Node http-server
 RUN npm install http-server -g
 
 # Install Grunt client
+WORKDIR /home/docker/
 RUN npm install -g grunt-cli
-RUN npm install grunt --save-dev
-RUN npm install grunt-template
-RUN npm install grunt-contrib-copy
-RUN npm install grunt-contrib-concat
-RUN npm install grunt-contrib-uglify
-RUN npm install grunt-contrib-cssmin
+RUN npm install -g grunt
+RUN npm install -g grunt-template
+RUN npm install -g grunt-contrib-copy
+RUN npm install -g grunt-contrib-concat
+RUN npm install -g grunt-contrib-uglify
+RUN npm install -g grunt-contrib-cssmin
+
+# Load the app
+WORKDIR /home/docker/
+RUN git clone https://github.com/PKarppinen/tyt-frontend-repo.git
 
 # Run Grunt to setup cluster environment configs
+WORKDIR /home/docker/tyt-frontend-repo/
 RUN grunt --apiIP=localhost
 
 # Give needed permissions for minified js file
 RUN chmod 755 dist/js/trail-your-trails.min.js
 
 # Run http-server
-CMD http-server . -p 8081 --cors
+CMD http-server . -p 8081
