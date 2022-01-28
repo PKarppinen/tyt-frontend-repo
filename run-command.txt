@@ -1,2 +1,0 @@
-Run cluster:    docker-compose -f docker-compose.yml up
-Remove cluster: docker-compose -f docker-compose.yml down

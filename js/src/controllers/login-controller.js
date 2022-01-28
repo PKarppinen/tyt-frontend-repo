@@ -6,8 +6,6 @@ angular.module('login-controller', [ ])
     $scope.login = function(creds) {
         $scope.errors = null;
         
-        console.log("creds: " + creds.username + ", " + creds.password);        
-
         var credentials = "username=" + creds.username + "&password=" + creds.password;            
 
         $http({method: 'POST',
