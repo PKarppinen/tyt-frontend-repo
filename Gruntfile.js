@@ -3,9 +3,9 @@ module.exports = function (grunt) {
   
 	var conf;
 	if (grunt.option('apiIP')) {
-		conf = { apiUrl: 'https://' + grunt.option('apiIP') + ':8080' };
+		conf = { apiUrl: 'https://' + grunt.option('apiIP') + ':8443' };
 	} else {
-		conf = { apiUrl: 'https://localhost:8080' };
+		conf = { apiUrl: 'https://localhost:8443' };
 	}
 	
 	grunt.log.write('API URL: ' + conf.apiUrl);
